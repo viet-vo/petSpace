@@ -1,0 +1,71 @@
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand">
+        <i class="fas fa-paw"></i>
+        petSpace
+    </a>
+</nav>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="jumbotron">
+            <h2 class="display-4">Welcome to petSpace!</h2>
+            <hr class="my-4">
+            <h3>Borrowers</h3>
+            <p>Are you looking to adopt a pet?  Our main goal is to provide people like you 
+                with the opportunity to take a pet on a trial from an animal shelter, in order to see how well you get along with the pet 
+                before you commit to an adoption.
+            </p>
+            <p>Do you love animals, but realize that you're not currently in a situation to provide a long-term home for a pet?  
+                You can "borrow" a pet from a either an animal shelter or a private owner.  You'll be able to enjoy an animal's company 
+                without the responsibility of owning one.
+            </p>
+            <hr class="my-4">
+            <h3>Shelters & Owners</h3>
+            <p>Do you work for an animal shelter...or own a pet?  Would you like to give a pet lover the opportunity to 
+                borrow your pet?  Sign your pets up so that they can receive extra care and attention!
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-7">
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="form-group">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="borrower">
+                    <label class="form-check-label" for="inlineRadio1">Borrower</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="shelter">
+                        <label class="form-check-label" for="inlineRadio2">Shelter</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="owner">
+                        <label class="form-check-label" for="inlineRadio3">Owner</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" id="login">Log In</button>
+            </form>
+        </div>
+        <div class="col-2 text-center">
+            <br><br>
+            <p>or</p>
+        </div>
+        <div class="col-3">
+            <br><br>
+            <p>...if you haven't already created an account, then...</p>
+                <a href="/signup"><button class="btn btn-primary" id="signup">Sign Up</button></a>
+        </div>
+    </div>
+    <br><br>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/home.js"></script>

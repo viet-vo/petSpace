@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">
+        <i class="fas fa-paw"></i>
+        petSpace
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                <a class="nav-link" href="/provider/{{prov_id}}/addpet">Add Pet</a>
+                </li>
+                <li class="nav-item active">
+                <a class="nav-link" href="#">View All Pets For This Provider</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/provider/{{prov_id}}/petsforpickup">View Pets Waiting For Pickup</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/provider/{{prov_id}}/petsforreturn">Views Pets Ready For Return</a>
+                </li>
+            </ul>
+            </div>
+</nav>
+<br>
+<div class="container">
+    <div class="row">
+        <h3 id="prvdr" data-id="{{prov_id}}">Provider ID: {{prov_id}}</h3>
+    </div>
+    <div class="row">
+        <p>All pets belonging to this provider:</p>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <ul class="list-group">
+                {{#each pets}}
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-2">
+                            <h4>{{name}}</h4>
+                            <p>(ID: {{id}})</p>
+                        </div>
+                        <div class="col-4"><img src="{{photoURL}}" alt="Image" width="200px"></div>
+                        <div class="col-3">
+                            <p>Category: {{category}}</p>
+                            <p>Breed: {{breed}}</p>
+                            <p>Gender: {{gender}}</p>
+                            <p>Temperament: {{temperament}}</p>
+                            <p>Available: {{#if available}}Yes{{/if}}{{#unless available}}No{{/unless}}</p>
+                        </div>
+                        <div class="col-3">
+                            <br>
+                            <a href="/provider/{{../prov_id}}/pet/{{id}}/transactions">
+                            <button class="btn btn-primary" type="button" data-id="{{id}}">View Transactions</button></a>
+                        </div>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+            <br><br>
+        </div> 
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
