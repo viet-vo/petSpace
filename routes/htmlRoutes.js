@@ -25,7 +25,25 @@ module.exports = function(app) {
     }).then(function(dbBorrower){
       db.Pet.findAll({}).then(function(dbPets) {
         res.render("borrower_allpets", {borrower: dbBorrower, pets: dbPets});
-      })
+      });
+    }); 
+  });
+
+  app.get("/login/provider/:id", function(req, res) {
+    db.Provider.findOne({
+      where: {id: req.params.id}
+    }).then(function(dbProvider){
+      res.render("provider_addpet", {provider: dbProvider});
+    }); 
+  });
+
+  app.get("/login/borrower/:id", function(req, res) {
+    db.Borrower.findOne({
+      where: {id: req.params.id}
+    }).then(function(dbBorrower){
+      db.Pet.findAll({}).then(function(dbPets) {
+        res.render("borrower_allpets", {borrower: dbBorrower, pets: dbPets});
+      });
     }); 
   });
 
