@@ -1,6 +1,65 @@
 var db = require("../models");
 
 module.exports = function(app) {
+  // LOGIN page
+  app.post("/api/login", function(req, res) {
+    if (req.body.category === 'Shelter' || req.body.category === 'Owner') {
+        db.Provider.findOne({
+            where: {
+              email: req.body.email
+            }
+          }).then(function(dbProvider) {
+            // If there's no user with the given email
+            if (!dbProvider) {
+                console.log("incorrect email");
+                 res.json({
+                     message: "Incorrect email."
+                });
+            }
+            // If there is a user with the given email, but the password the user gives us is incorrect
+            else if (dbProvider.password != req.body.password) {
+                console.log("incorrect password");
+                res.json({
+                    message: "Incorrect password."
+                });
+            }
+            else {
+                // If none of the above, return the user
+                console.log("found user");
+                res.json({
+                    user: dbProvider
+                });
+            }
+        });
+    }
+    else if (req.body.category === "Borrower") {
+        db.Borrower.findOne({
+            where: {
+              email: req.body.email
+            }
+          }).then(function(dbBorrower) {
+            // If there's no user with the given email
+            if (!dbBorrower) {
+                console.log("incorrect email");
+                res.json({message: "Incorrect email."
+              });
+            }
+            // If there is a user with the given email, but the password the user gives us is incorrect
+            else if (dbBorrower.password != req.body.password) {
+                console.log("incorrect password");
+                res.json({message: "Incorrect password."
+              });
+            }
+            else {
+                // If none of the above, return the user
+                console.log("found user");
+                res.json({
+                    user: dbBorrower
+                });
+            }
+        });
+    }
+  });
 
   // SIGNUP page
   // Add a user (Create a new user and store the new user in the petspacedb)

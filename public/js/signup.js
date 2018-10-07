@@ -1,9 +1,8 @@
 var $signup = $('#signup');
 
-
 var signUserUp = function(event) {
     event.preventDefault();
-    console.log("here");
+    $('#msg').text("");
 
     var email = $('#email').val().trim();
     var password = $('#password').val().trim();
@@ -16,13 +15,12 @@ var signUserUp = function(event) {
 
     if (email === "" || password === "" || category === "" || name === "" ||
         streetAddress === "" || city === "" || state === "" || zip === "") {
-            console.log("something is empty");
+            $('#msg').text("Please fill in all the fields.");
         }
     else if (!email.match('.+\@.+\..+')) {
-        console.log("email format is invalid");
+        $('#msg').text("Email format is invalid.");
     }
     else {
-        console.log("everything is filled in");
         var user = {
             email: email,
             password: password,
@@ -46,9 +44,7 @@ var signUserUp = function(event) {
                     window.location.replace("/provider");
                 } 
             });
-
     }
-    console.log(category);
 }
 
 $signup.on('click', signUserUp);
