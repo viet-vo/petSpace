@@ -1,9 +1,8 @@
 var $addpet = $('#addpet');
 
-
 var addNewPet = function(event) {
     event.preventDefault();
-    console.log("here");
+    $('#msg').text("");
 
     var name = $('#name').val().trim();
     var category = $('#category').val();
@@ -15,10 +14,9 @@ var addNewPet = function(event) {
 
     if (name === "" || category === "" || breed === "" || gender === "" ||
         temperament === "" || photoURL === "") {
-            console.log("something is empty");
+            $('#msg').text("Please fill in all the fields.");
         }
     else {
-        console.log("everything is filled in");
         var pet = {
             name: name,
             category: category,
@@ -41,9 +39,7 @@ var addNewPet = function(event) {
                 $('#temperament').val('1');
                 $('#photoURL').val('');
             });
-
     }
-    console.log(category);
 }
 
 $addpet.on('click', addNewPet);
